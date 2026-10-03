@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {FileBlob,SpreadsheetFile} from '@oai/artifact-tool';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const file=path.join(root,'Data/Expanded/IVL_single_season_dataset_兼容版.xlsx');
+const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(file));
+console.log((await wb.inspect({kind:'table',range:'概览!A2:B17',include:'values,formulas',tableMaxRows:16,tableMaxCols:2,maxChars:1800})).ndjson);
+console.log((await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!',options:{useRegex:true,maxResults:30},summary:'formula error scan',maxChars:800})).ndjson);
+const image=await wb.render({sheetName:'概览',range:'A1:B17',scale:1.5,format:'png'});
+const out=path.join(root,'experiments/qa/兼容版概览.png');
+await fs.mkdir(path.dirname(out),{recursive:true});
+await fs.writeFile(out,new Uint8Array(await image.arrayBuffer()));

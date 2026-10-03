@@ -1,0 +1,499 @@
+{
+  "target": "主胜=1, 客胜=0; draws excluded",
+  "features": {
+    "keys": [
+      "elo_diff_scaled",
+      "smoothed_win_rate_diff",
+      "avg_point_margin_diff",
+      "recent5_margin_diff",
+      "hunter_margin_diff",
+      "survivor_margin_diff",
+      "head_to_head_margin"
+    ],
+    "labels": [
+      "Elo差 / 400",
+      "历史胜率差",
+      "历史净胜分差 / 10",
+      "近五场净胜分差 / 10",
+      "监管表现差 / 4",
+      "求生表现差 / 4",
+      "历史交锋分差 / 10"
+    ],
+    "availability": "prior completed matches only"
+  },
+  "split": {
+    "training": {
+      "all_matches": 60,
+      "non_draw_matches": 59,
+      "home_wins": 35,
+      "away_wins": 24,
+      "date_min": "2025-10-02",
+      "date_max": "2025-11-09"
+    },
+    "validation": {
+      "all_matches": 15,
+      "non_draw_matches": 15,
+      "home_wins": 6,
+      "away_wins": 9,
+      "date_min": "2025-11-14",
+      "date_max": "2025-11-22"
+    },
+    "test": {
+      "all_matches": 15,
+      "non_draw_matches": 14,
+      "home_wins": 8,
+      "away_wins": 6,
+      "date_min": "2025-11-23",
+      "date_max": "2025-11-30"
+    }
+  },
+  "selection": {
+    "criterion": "minimum balanced validation log loss",
+    "selected_ridge": 30.0,
+    "candidates": [
+      {
+        "ridge": 0.1,
+        "balanced_validation_log_loss": 1.6801189861332024,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6,
+          "balanced_accuracy": 0.5833333333333333,
+          "macro_f1": 0.5833333333333333,
+          "roc_auc": 0.7592592592592593,
+          "log_loss": 1.6112539574283884,
+          "brier": 0.30992926481348665,
+          "confusion_matrix": [
+            [
+              6,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      },
+      {
+        "ridge": 0.3,
+        "balanced_validation_log_loss": 1.3933162729535185,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.6388888888888888,
+          "macro_f1": 0.6411483253588517,
+          "roc_auc": 0.7592592592592593,
+          "log_loss": 1.3360076398520504,
+          "brier": 0.29822820101122716,
+          "confusion_matrix": [
+            [
+              7,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      },
+      {
+        "ridge": 1.0,
+        "balanced_validation_log_loss": 1.027866713602998,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.6388888888888888,
+          "macro_f1": 0.6411483253588517,
+          "roc_auc": 0.7962962962962963,
+          "log_loss": 0.9924261631699449,
+          "brier": 0.27375380966353297,
+          "confusion_matrix": [
+            [
+              7,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      },
+      {
+        "ridge": 3.0,
+        "balanced_validation_log_loss": 0.7321751934047094,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.6666666666666666,
+          "macro_f1": 0.660633484162896,
+          "roc_auc": 0.7962962962962963,
+          "log_loss": 0.7163263889808799,
+          "brier": 0.2332151767617483,
+          "confusion_matrix": [
+            [
+              6,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      },
+      {
+        "ridge": 10.0,
+        "balanced_validation_log_loss": 0.5432616540131878,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.6666666666666666,
+          "macro_f1": 0.660633484162896,
+          "roc_auc": 0.8148148148148148,
+          "log_loss": 0.5383967345774932,
+          "brier": 0.18252099959394938,
+          "confusion_matrix": [
+            [
+              6,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      },
+      {
+        "ridge": 30.0,
+        "balanced_validation_log_loss": 0.4975999316100985,
+        "validation_metrics": {
+          "n": 15,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.6666666666666666,
+          "macro_f1": 0.660633484162896,
+          "roc_auc": 0.8333333333333334,
+          "log_loss": 0.49464551817174274,
+          "brier": 0.16262549282622274,
+          "confusion_matrix": [
+            [
+              6,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "class_counts": {
+            "away_win": 9,
+            "home_win": 6
+          }
+        }
+      }
+    ]
+  },
+  "models": {
+    "balanced": {
+      "model": {
+        "ridge": 30.0,
+        "class_weight": "balanced",
+        "intercept": 0.04647442661019533,
+        "standardized_coefficients": {
+          "Elo差 / 400": 0.19147205485131882,
+          "历史胜率差": 0.18385356545353415,
+          "历史净胜分差 / 10": 0.17946704124033475,
+          "近五场净胜分差 / 10": 0.0733607072024114,
+          "监管表现差 / 4": 0.11496375933309691,
+          "求生表现差 / 4": 0.1542905390187847,
+          "历史交锋分差 / 10": 0.17015181259794124
+        },
+        "training_means": {
+          "elo_diff_scaled": -0.005794726471132319,
+          "smoothed_win_rate_diff": -0.0037783609184537945,
+          "avg_point_margin_diff": 0.0007846978802861084,
+          "recent5_margin_diff": 0.056891891891891866,
+          "hunter_margin_diff": -0.009656515403116381,
+          "survivor_margin_diff": 0.017809438294037486,
+          "head_to_head_margin": -0.12972972972972974
+        },
+        "training_scales": {
+          "elo_diff_scaled": 0.17087010224150356,
+          "smoothed_win_rate_diff": 0.20530951660464672,
+          "avg_point_margin_diff": 0.29413899480652295,
+          "recent5_margin_diff": 0.5014361001033044,
+          "hunter_margin_diff": 0.2301558155220146,
+          "survivor_margin_diff": 0.19984001720253264,
+          "head_to_head_margin": 0.3875528663953839
+        }
+      },
+      "test_metrics": {
+        "n": 14,
+        "accuracy": 0.5714285714285714,
+        "balanced_accuracy": 0.6041666666666667,
+        "macro_f1": 0.5625,
+        "roc_auc": 0.6875,
+        "log_loss": 0.7600462661824315,
+        "brier": 0.2635675347587466,
+        "confusion_matrix": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "class_counts": {
+          "away_win": 6,
+          "home_win": 8
+        }
+      },
+      "roc": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0,
+          "threshold": null
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.125,
+          "threshold": 0.8305418744856196
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.25,
+          "threshold": 0.749392353861438
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.25,
+          "threshold": 0.7461108593866922
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.375,
+          "threshold": 0.7250925329705216
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.5,
+          "threshold": 0.4513586642227447
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.625,
+          "threshold": 0.3749443983279115
+        },
+        {
+          "fpr": 0.3333333333333333,
+          "tpr": 0.625,
+          "threshold": 0.28069955933920077
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.625,
+          "threshold": 0.23587012381283706
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.75,
+          "threshold": 0.22156373192934609
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.875,
+          "threshold": 0.20694599733372362
+        },
+        {
+          "fpr": 0.6666666666666666,
+          "tpr": 0.875,
+          "threshold": 0.14615244691881052
+        },
+        {
+          "fpr": 0.8333333333333334,
+          "tpr": 0.875,
+          "threshold": 0.11649105774056667
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 0.875,
+          "threshold": 0.07040989503871208
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0,
+          "threshold": 0.06980916071949708
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0,
+          "threshold": null
+        }
+      ]
+    },
+    "unweighted": {
+      "model": {
+        "ridge": 30.0,
+        "class_weight": "none",
+        "intercept": 0.24618783692680843,
+        "standardized_coefficients": {
+          "Elo差 / 400": 0.19315042513710945,
+          "历史胜率差": 0.18431804883085898,
+          "历史净胜分差 / 10": 0.1783667329707813,
+          "近五场净胜分差 / 10": 0.06906001599691519,
+          "监管表现差 / 4": 0.11253474482667135,
+          "求生表现差 / 4": 0.15329976692613148,
+          "历史交锋分差 / 10": 0.1765882161465397
+        },
+        "training_means": {
+          "elo_diff_scaled": -0.005794726471132319,
+          "smoothed_win_rate_diff": -0.0037783609184537945,
+          "avg_point_margin_diff": 0.0007846978802861084,
+          "recent5_margin_diff": 0.056891891891891866,
+          "hunter_margin_diff": -0.009656515403116381,
+          "survivor_margin_diff": 0.017809438294037486,
+          "head_to_head_margin": -0.12972972972972974
+        },
+        "training_scales": {
+          "elo_diff_scaled": 0.17087010224150356,
+          "smoothed_win_rate_diff": 0.20530951660464672,
+          "avg_point_margin_diff": 0.29413899480652295,
+          "recent5_margin_diff": 0.5014361001033044,
+          "hunter_margin_diff": 0.2301558155220146,
+          "survivor_margin_diff": 0.19984001720253264,
+          "head_to_head_margin": 0.3875528663953839
+        }
+      },
+      "test_metrics": {
+        "n": 14,
+        "accuracy": 0.6428571428571429,
+        "balanced_accuracy": 0.6666666666666667,
+        "macro_f1": 0.641025641025641,
+        "roc_auc": 0.7083333333333334,
+        "log_loss": 0.7229267677368727,
+        "brier": 0.25100599820827235,
+        "confusion_matrix": [
+          [
+            5,
+            1
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "class_counts": {
+          "away_win": 6,
+          "home_win": 8
+        }
+      },
+      "roc": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0,
+          "threshold": null
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.125,
+          "threshold": 0.8572250539953539
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.25,
+          "threshold": 0.7859335703231921
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.25,
+          "threshold": 0.7839345958992934
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.375,
+          "threshold": 0.7658884346581302
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.5,
+          "threshold": 0.5016536645125923
+        },
+        {
+          "fpr": 0.16666666666666666,
+          "tpr": 0.625,
+          "threshold": 0.42135058561230765
+        },
+        {
+          "fpr": 0.3333333333333333,
+          "tpr": 0.625,
+          "threshold": 0.3211573241010304
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.625,
+          "threshold": 0.2711987471426807
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.75,
+          "threshold": 0.2574616633201636
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 0.875,
+          "threshold": 0.2430106300338999
+        },
+        {
+          "fpr": 0.6666666666666666,
+          "tpr": 0.875,
+          "threshold": 0.17233888532745809
+        },
+        {
+          "fpr": 0.8333333333333334,
+          "tpr": 0.875,
+          "threshold": 0.13892847486359203
+        },
+        {
+          "fpr": 0.8333333333333334,
+          "tpr": 1.0,
+          "threshold": 0.08444635203393112
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0,
+          "threshold": 0.08367671761497004
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0,
+          "threshold": null
+        }
+      ]
+    }
+  },
+  "test_evaluated_after_selection": true
+}

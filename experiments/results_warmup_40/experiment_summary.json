@@ -1,0 +1,19 @@
+{
+  "input_rows": 486,
+  "matches": 90,
+  "warmup_matches": 40,
+  "test_non_draw_matches": 49,
+  "label_rule": "round wins first, then total score; tied totals unresolved",
+  "final_elo": {
+    "GR": 1613.4039541992402,
+    "MRC": 1602.034969049179,
+    "Wolves": 1563.0280381989653,
+    "WBG": 1529.7168321417025,
+    "GG": 1519.9507867447066,
+    "TE": 1509.3891009845952,
+    "DOU5": 1480.5177249051062,
+    "FPX.ZQ": 1424.9097620815194,
+    "ACT": 1393.3803165436193,
+    "GW": 1363.6685151513664
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "protocol": "walk-forward, fixed ridge=2, warmup=30",
+  "metrics": {
+    "历史均值基线": {
+      "n": 59,
+      "accuracy": 0.4745762711864407,
+      "accuracy_ci95_low": 0.35265669027401325,
+      "accuracy_ci95_high": 0.5996042324268729,
+      "log_loss": 0.7439710256381489,
+      "brier": 0.2740809302525471,
+      "roc_auc": 0.4435483870967742
+    },
+    "原始 Elo": {
+      "n": 59,
+      "accuracy": 0.7457627118644068,
+      "accuracy_ci95_low": 0.6220361301768266,
+      "accuracy_ci95_high": 0.8394416170479418,
+      "log_loss": 0.6044864818044062,
+      "brier": 0.2063144401690361,
+      "roc_auc": 0.7811059907834101
+    },
+    "Elo 逻辑回归": {
+      "n": 59,
+      "accuracy": 0.6779661016949152,
+      "accuracy_ci95_low": 0.5510476493903221,
+      "accuracy_ci95_high": 0.7831258917034755,
+      "log_loss": 0.6184941301131863,
+      "brier": 0.20400520237920225,
+      "roc_auc": 0.7891705069124424
+    },
+    "全部七特征逻辑回归": {
+      "n": 59,
+      "accuracy": 0.7457627118644068,
+      "accuracy_ci95_low": 0.6220361301768266,
+      "accuracy_ci95_high": 0.8394416170479418,
+      "log_loss": 0.611584798417601,
+      "brier": 0.19623144759478123,
+      "roc_auc": 0.7845622119815668
+    }
+  },
+  "frozen_model_metrics": {
+    "n": 59,
+    "accuracy": 0.6949152542372882,
+    "accuracy_ci95_low": 0.5685343274025617,
+    "accuracy_ci95_high": 0.7974652652239788,
+    "log_loss": 0.6241993867313924,
+    "brier": 0.2120212812829011,
+    "roc_auc": 0.782258064516129
+  },
+  "coefficients": [
+    {
+      "feature": "elo_diff_scaled",
+      "label": "Elo 分差 / 400",
+      "standardized_coefficient": 0.3423478930697777
+    },
+    {
+      "feature": "smoothed_win_rate_diff",
+      "label": "平滑历史胜率差",
+      "standardized_coefficient": 0.08939250873737434
+    },
+    {
+      "feature": "avg_point_margin_diff",
+      "label": "历史净胜分差 / 10",
+      "standardized_coefficient": 0.1612764226209575
+    },
+    {
+      "feature": "recent5_margin_diff",
+      "label": "最近五场净胜分差 / 10",
+      "standardized_coefficient": -0.020158486362837385
+    },
+    {
+      "feature": "hunter_margin_diff",
+      "label": "监管表现差 / 4",
+      "standardized_coefficient": -0.0723268222356632
+    },
+    {
+      "feature": "survivor_margin_diff",
+      "label": "求生表现差 / 4",
+      "standardized_coefficient": 0.11169347503929421
+    },
+    {
+      "feature": "head_to_head_margin",
+      "label": "历史交锋净胜分 / 10",
+      "standardized_coefficient": 0.0
+    }
+  ],
+  "permutation_importance": [
+    {
+      "feature": "elo_diff_scaled",
+      "label": "Elo 分差 / 400",
+      "delta_log_loss": 0.19018259483498523,
+      "sd": 0.0627538450432843
+    },
+    {
+      "feature": "smoothed_win_rate_diff",
+      "label": "平滑历史胜率差",
+      "delta_log_loss": -0.00021499368176022937,
+      "sd": 0.00971724958072289
+    },
+    {
+      "feature": "avg_point_margin_diff",
+      "label": "历史净胜分差 / 10",
+      "delta_log_loss": 0.004390631966322647,
+      "sd": 0.012583749640378462
+    },
+    {
+      "feature": "recent5_margin_diff",
+      "label": "最近五场净胜分差 / 10",
+      "delta_log_loss": 0.0005623414771977253,
+      "sd": 0.0008515163422775906
+    },
+    {
+      "feature": "hunter_margin_diff",
+      "label": "监管表现差 / 4",
+      "delta_log_loss": 0.0020664704785519363,
+      "sd": 0.005074751162343822
+    },
+    {
+      "feature": "survivor_margin_diff",
+      "label": "求生表现差 / 4",
+      "delta_log_loss": -0.0007890353555924712,
+      "sd": 0.0060091720604946225
+    },
+    {
+      "feature": "head_to_head_margin",
+      "label": "历史交锋净胜分 / 10",
+      "delta_log_loss": 0.0,
+      "sd": 0.0
+    }
+  ],
+  "interpretation_training_matches": 30
+}

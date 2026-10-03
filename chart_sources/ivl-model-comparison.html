@@ -1,0 +1,56 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>模型比较</title><style>body{margin:0;background:#f4f6fa;color:#192739;font:16px/1.65 "Microsoft YaHei",Arial,sans-serif}main{max-width:1160px;margin:32px auto;padding:0 24px}h1{font-size:30px;line-height:1.3}h2{font-size:20px}a{color:#265ab5}header,section{background:white;border:1px solid #dce3ec;border-radius:12px;padding:24px;margin:18px 0}p{color:#506176}.cards{display:flex;gap:16px;flex-wrap:wrap}.card{flex:1;min-width:140px;background:#edf3fb;padding:16px;border-radius:8px}.card strong{display:block;font-size:28px;color:#254f91}svg{width:100%;height:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #e4e9f0}th{background:#eaf0f8;position:sticky;top:0}tr:hover{background:#f0f5fd}.scroll{overflow:auto}select,input{padding:8px;font-size:15px;border:1px solid #adbdd2;border-radius:6px}nav{display:flex;gap:16px;flex-wrap:wrap}.notice{border-left:4px solid #c78a24;padding-left:14px}footer{font-size:13px;color:#617286;margin:24px 0}circle:hover{stroke:#172c48;stroke-width:2}</style></head><body><main><nav><a href="../index.html">分析首页</a></nav><header><h1>模型比较</h1><p>统一使用前 30 场热身后的非平局比赛。逻辑回归 ridge=2 为预设值，未根据测试指标调参。</p></header><section><svg viewBox="0 0 1040 256" role="img" aria-label="对数损失（越低越好）"><text x="20" y="28" font-size="17">对数损失（越低越好）</text><text x="15" y="70" font-size="14">历史均值基线</text><rect x="250.00" y="50" width="560.34" height="27" rx="3" fill="#416fb8"><title>历史均值基线：0.744</title></rect><text x="818.34" y="70" font-size="13">0.744</text><text x="15" y="114" font-size="14">原始 Elo</text><rect x="250.00" y="94" width="455.29" height="27" rx="3" fill="#416fb8"><title>原始 Elo：0.604</title></rect><text x="713.29" y="114" font-size="13">0.604</text><text x="15" y="158" font-size="14">Elo 逻辑回归</text><rect x="250.00" y="138" width="465.84" height="27" rx="3" fill="#416fb8"><title>Elo 逻辑回归：0.618</title></rect><text x="723.84" y="158" font-size="13">0.618</text><text x="15" y="202" font-size="14">全部七特征逻辑回归</text><rect x="250.00" y="182" width="460.63" height="27" rx="3" fill="#416fb8"><title>全部七特征逻辑回归：0.612</title></rect><text x="718.63" y="202" font-size="13">0.612</text></svg><div class="scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>n</th>
+      <th>accuracy</th>
+      <th>accuracy_ci95_low</th>
+      <th>accuracy_ci95_high</th>
+      <th>log_loss</th>
+      <th>brier</th>
+      <th>roc_auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>历史均值基线</td>
+      <td>59</td>
+      <td>0.4746</td>
+      <td>0.3527</td>
+      <td>0.5996</td>
+      <td>0.7440</td>
+      <td>0.2741</td>
+      <td>0.4435</td>
+    </tr>
+    <tr>
+      <td>原始 Elo</td>
+      <td>59</td>
+      <td>0.7458</td>
+      <td>0.6220</td>
+      <td>0.8394</td>
+      <td>0.6045</td>
+      <td>0.2063</td>
+      <td>0.7811</td>
+    </tr>
+    <tr>
+      <td>Elo 逻辑回归</td>
+      <td>59</td>
+      <td>0.6780</td>
+      <td>0.5510</td>
+      <td>0.7831</td>
+      <td>0.6185</td>
+      <td>0.2040</td>
+      <td>0.7892</td>
+    </tr>
+    <tr>
+      <td>全部七特征逻辑回归</td>
+      <td>59</td>
+      <td>0.7458</td>
+      <td>0.6220</td>
+      <td>0.8394</td>
+      <td>0.6116</td>
+      <td>0.1962</td>
+      <td>0.7846</td>
+    </tr>
+  </tbody>
+</table></div></section><section><p>历史均值基线使用此前全部赛果的均值。Elo 与逻辑回归随历史逐场更新。此处没有多赛季训练结果。</p></section><footer>来源：随包 CSV。图表与指标由本次数据重新计算，可离线浏览。</footer></main><script></script></body></html>

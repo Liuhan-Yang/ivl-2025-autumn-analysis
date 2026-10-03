@@ -1,0 +1,519 @@
+{
+  "source": "Data_details_All_games_details.csv",
+  "sha256": "ebcd8d5ffa1d176800f14a5f180cd0bb94967959ae95e8379f2489832f1855b6",
+  "rows": 486,
+  "columns": 99,
+  "matches": 90,
+  "teams": 10,
+  "date_min": "2025-10-02",
+  "date_max": "2025-11-30",
+  "small_game_outcomes": {
+    "平局": 218,
+    "监管胜": 174,
+    "求生胜": 94
+  },
+  "match_outcomes": {
+    "主胜": 49,
+    "客胜": 39,
+    "平局": 2
+  },
+  "label_disagreements": 3,
+  "duplicate_small_game_ids": 0,
+  "missing": [
+    {
+      "column": "大场序号",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "大场内小局序号",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "小局唯一ID",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "大场对阵",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "监管方队伍",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "求生方队伍",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "监管方得分",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "求生方得分",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "单局结果",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "赛段",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "阶段",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "日期",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "具体时间",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "主场",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "客场",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "场次号",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "屠队主客",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "屠队",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "屠名",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "主分",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "客分",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "胜利方",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "BAN图",
+      "missing": 306,
+      "missing_rate": 0.6296296296296297
+    },
+    {
+      "column": "BAN图2",
+      "missing": 14,
+      "missing_rate": 0.02880658436213992
+    },
+    {
+      "column": "地图",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "全局禁用人1-1",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "全局禁用人1-2",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "全局禁用人1-3",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "全局禁用人2-1",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "全局禁用人2-2",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "全局禁用人2-3",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "全局禁用人3-1",
+      "missing": 476,
+      "missing_rate": 0.9794238683127572
+    },
+    {
+      "column": "全局禁用人3-2",
+      "missing": 476,
+      "missing_rate": 0.9794238683127572
+    },
+    {
+      "column": "全局禁用人3-3",
+      "missing": 476,
+      "missing_rate": 0.9794238683127572
+    },
+    {
+      "column": "全局禁用屠1-1",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "全局禁用屠2-1",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "全局禁用屠3-1",
+      "missing": 476,
+      "missing_rate": 0.9794238683127572
+    },
+    {
+      "column": "人BAN1-1",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "人BAN1-2",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "人BAN1-3",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人BAN1-4",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "屠BAN1-1",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "屠BAN1-2",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "屠BAN1-3",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人选1-1",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "人选1-2",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "人选1-3",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人选1-4",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人BAN2-1",
+      "missing": 1,
+      "missing_rate": 0.00205761316872428
+    },
+    {
+      "column": "人BAN2-2",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人选2-1",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "人选2-2",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "人BAN3-1",
+      "missing": 1,
+      "missing_rate": 0.00205761316872428
+    },
+    {
+      "column": "人选3-1",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "屠选",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "辅助特质",
+      "missing": 1,
+      "missing_rate": 0.00205761316872428
+    },
+    {
+      "column": "底牌后",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "地图选择方主客",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "剩机台数",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "求生者1ID",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "使用角色1",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "修机进度1",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "砸板命中1",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "救人次数1",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "治疗1",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "牵制时长1",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "出门1",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "求生者2ID",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "使用角色2",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "修机进度2",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "砸板命中2",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "救人次数2",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "治疗2",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "牵制时长2",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "出门2",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "求生者3ID",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "使用角色3",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "修机进度3",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "砸板命中3",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "救人次数3",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "治疗3",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "牵制时长3",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "出门3",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "求生者4ID",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "使用角色4",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "修机进度4",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "砸板命中4",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "救人次数4",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "治疗4",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "牵制时长4",
+      "missing": 6,
+      "missing_rate": 0.012345679012345678
+    },
+    {
+      "column": "出门4",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "用时 (分)",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "用时 (秒)",
+      "missing": 5,
+      "missing_rate": 0.0102880658436214
+    },
+    {
+      "column": "MVP",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "MVP角色",
+      "missing": 0,
+      "missing_rate": 0.0
+    },
+    {
+      "column": "备注",
+      "missing": 486,
+      "missing_rate": 1.0
+    },
+    {
+      "column": "全局禁用人1-4",
+      "missing": 180,
+      "missing_rate": 0.37037037037037035
+    },
+    {
+      "column": "全局禁用人2-4",
+      "missing": 360,
+      "missing_rate": 0.7407407407407407
+    },
+    {
+      "column": "全局禁用人3-4",
+      "missing": 476,
+      "missing_rate": 0.9794238683127572
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+﻿大场序号,date,time,home,away,home_score,away_score,half_rounds,margin,target,home_round_wins,away_round_wins,score_target,deciding_rule,label_disagreement
+17,2025-10-10,1600,WBG,FPX.ZQ,12,12,6,0,0.0,1,2,0.5,round_wins,True
+39,2025-10-25,1800,GG,DOU5,12,13,6,-1,1.0,2,1,0.0,round_wins,True
+73,2025-11-22,1400,WBG,ACT,11,14,6,-3,1.0,2,1,0.0,round_wins,True

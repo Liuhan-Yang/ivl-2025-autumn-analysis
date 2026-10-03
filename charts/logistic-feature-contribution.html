@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>逻辑回归特征贡献</title><style>body{margin:0;background:#f4f6fa;color:#192739;font:16px/1.65 "Microsoft YaHei",Arial,sans-serif}main{max-width:1160px;margin:32px auto;padding:0 24px}h1{font-size:30px;line-height:1.3}h2{font-size:20px}a{color:#265ab5}header,section{background:white;border:1px solid #dce3ec;border-radius:12px;padding:24px;margin:18px 0}p{color:#506176}.cards{display:flex;gap:16px;flex-wrap:wrap}.card{flex:1;min-width:140px;background:#edf3fb;padding:16px;border-radius:8px}.card strong{display:block;font-size:28px;color:#254f91}svg{width:100%;height:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #e4e9f0}th{background:#eaf0f8;position:sticky;top:0}tr:hover{background:#f0f5fd}.scroll{overflow:auto}select,input{padding:8px;font-size:15px;border:1px solid #adbdd2;border-radius:6px}nav{display:flex;gap:16px;flex-wrap:wrap}.notice{border-left:4px solid #c78a24;padding-left:14px}footer{font-size:13px;color:#617286;margin:24px 0}circle:hover{stroke:#172c48;stroke-width:2}</style></head><body><main><nav><a href="../index.html">分析首页</a></nav><header><h1>逻辑回归特征贡献</h1><p>解释对象是仅用前 30 场训练并冻结的模型。该模型与逐场重训模型的成绩不同。</p></header><section><svg viewBox="0 0 1040 388" role="img" aria-label="标准化系数"><text x="20" y="28" font-size="17">标准化系数</text><text x="15" y="70" font-size="14">Elo 分差 / 400</text><rect x="575.00" y="50" width="280.17" height="27" rx="3" fill="#416fb8"><title>Elo 分差 / 400：0.342</title></rect><text x="863.17" y="70" font-size="13">0.342</text><text x="15" y="114" font-size="14">平滑历史胜率差</text><rect x="575.00" y="94" width="73.16" height="27" rx="3" fill="#416fb8"><title>平滑历史胜率差：0.089</title></rect><text x="656.16" y="114" font-size="13">0.089</text><text x="15" y="158" font-size="14">历史净胜分差 / 10</text><rect x="575.00" y="138" width="131.99" height="27" rx="3" fill="#416fb8"><title>历史净胜分差 / 10：0.161</title></rect><text x="714.99" y="158" font-size="13">0.161</text><text x="15" y="202" font-size="14">最近五场净胜分差 / 10</text><rect x="558.50" y="182" width="16.50" height="27" rx="3" fill="#bd745b"><title>最近五场净胜分差 / 10：-0.020</title></rect><text x="583.00" y="202" font-size="13">-0.020</text><text x="15" y="246" font-size="14">监管表现差 / 4</text><rect x="515.81" y="226" width="59.19" height="27" rx="3" fill="#bd745b"><title>监管表现差 / 4：-0.072</title></rect><text x="583.00" y="246" font-size="13">-0.072</text><text x="15" y="290" font-size="14">求生表现差 / 4</text><rect x="575.00" y="270" width="91.41" height="27" rx="3" fill="#416fb8"><title>求生表现差 / 4：0.112</title></rect><text x="674.41" y="290" font-size="13">0.112</text><text x="15" y="334" font-size="14">历史交锋净胜分 / 10</text><rect x="575.00" y="314" width="0.00" height="27" rx="3" fill="#416fb8"><title>历史交锋净胜分 / 10：0.000</title></rect><text x="583.00" y="334" font-size="13">0.000</text></svg><p>正系数增加主胜倾向，负系数增加客胜倾向；相关特征会分摊权重，不能解释为因果关系。</p></section><section><svg viewBox="0 0 1040 388" role="img" aria-label="置换后对数损失变化"><text x="20" y="28" font-size="17">置换后对数损失变化</text><text x="15" y="70" font-size="14">Elo 分差 / 400</text><rect x="575.00" y="50" width="280.17" height="27" rx="3" fill="#416fb8"><title>Elo 分差 / 400：0.190</title></rect><text x="863.17" y="70" font-size="13">0.190</text><text x="15" y="114" font-size="14">历史净胜分差 / 10</text><rect x="575.00" y="94" width="6.47" height="27" rx="3" fill="#416fb8"><title>历史净胜分差 / 10：0.004</title></rect><text x="589.47" y="114" font-size="13">0.004</text><text x="15" y="158" font-size="14">监管表现差 / 4</text><rect x="575.00" y="138" width="3.04" height="27" rx="3" fill="#416fb8"><title>监管表现差 / 4：0.002</title></rect><text x="586.04" y="158" font-size="13">0.002</text><text x="15" y="202" font-size="14">最近五场净胜分差 / 10</text><rect x="575.00" y="182" width="0.83" height="27" rx="3" fill="#416fb8"><title>最近五场净胜分差 / 10：0.001</title></rect><text x="583.83" y="202" font-size="13">0.001</text><text x="15" y="246" font-size="14">历史交锋净胜分 / 10</text><rect x="575.00" y="226" width="0.00" height="27" rx="3" fill="#416fb8"><title>历史交锋净胜分 / 10：0.000</title></rect><text x="583.00" y="246" font-size="13">0.000</text><text x="15" y="290" font-size="14">平滑历史胜率差</text><rect x="574.68" y="270" width="0.32" height="27" rx="3" fill="#bd745b"><title>平滑历史胜率差：-0.000</title></rect><text x="583.00" y="290" font-size="13">-0.000</text><text x="15" y="334" font-size="14">求生表现差 / 4</text><rect x="573.84" y="314" width="1.16" height="27" rx="3" fill="#bd745b"><title>求生表现差 / 4：-0.001</title></rect><text x="583.00" y="334" font-size="13">-0.001</text></svg><div class="scroll"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>label</th>
+      <th>delta_log_loss</th>
+      <th>sd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>elo_diff_scaled</td>
+      <td>Elo 分差 / 400</td>
+      <td>0.1902</td>
+      <td>0.0628</td>
+    </tr>
+    <tr>
+      <td>avg_point_margin_diff</td>
+      <td>历史净胜分差 / 10</td>
+      <td>0.0044</td>
+      <td>0.0126</td>
+    </tr>
+    <tr>
+      <td>hunter_margin_diff</td>
+      <td>监管表现差 / 4</td>
+      <td>0.0021</td>
+      <td>0.0051</td>
+    </tr>
+    <tr>
+      <td>recent5_margin_diff</td>
+      <td>最近五场净胜分差 / 10</td>
+      <td>0.0006</td>
+      <td>0.0009</td>
+    </tr>
+    <tr>
+      <td>head_to_head_margin</td>
+      <td>历史交锋净胜分 / 10</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>smoothed_win_rate_diff</td>
+      <td>平滑历史胜率差</td>
+      <td>-0.0002</td>
+      <td>0.0097</td>
+    </tr>
+    <tr>
+      <td>survivor_margin_diff</td>
+      <td>求生表现差 / 4</td>
+      <td>-0.0008</td>
+      <td>0.0060</td>
+    </tr>
+  </tbody>
+</table></div><p>在同一测试集上置换每个特征 100 次。负值可能提示噪声，但不能据此重新选择特征后继续声称该测试集独立。</p></section><footer>来源：随包 CSV。图表与指标由本次数据重新计算，可离线浏览。</footer></main><script></script></body></html>

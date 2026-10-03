@@ -1,0 +1,11 @@
+{
+  "raw_records": 486,
+  "match_records": 90,
+  "charts": 8,
+  "warmup_metric_recalculation": "passed",
+  "prefix_causality": "passed for first 40 matches",
+  "logistic_split_evaluation": "passed",
+  "xlsx_structure": "passed",
+  "links": "passed",
+  "html_browser_preview": "blocked by local-file browser URL policy; not performed"
+}
