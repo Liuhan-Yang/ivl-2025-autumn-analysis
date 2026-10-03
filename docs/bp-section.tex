@@ -1,0 +1,126 @@
+% Insert before Discussion/Conclusion. Uses only the original template packages.
+\section{Conditional GAN for Ban/Pick Simulation}
+\label{sec:bpgan}
+
+\subsection{Task and Scope}
+To extend the project from outcome prediction to generation, a conditional
+generative adversarial network (cGAN) was trained to generate a lineup given
+a map, a round category, and supplied character bans. A generated lineup
+contains one hunter and four distinct survivors. This is a ban-conditioned
+lineup-completion task, not a complete sequential draft policy: bans are
+provided as inputs rather than generated as actions.
+
+The objective is to approximate observed selection patterns, not to maximize
+winning probability. No win probability is assigned to the generated lineups.
+The current decoder enforces faction membership, supplied bans, and survivor
+uniqueness, but does not implement all patch-specific or tournament-specific
+rules. The method follows the conditional adversarial framework of Mirza and
+Osindero\footnote{\url{https://arxiv.org/abs/1411.1784}} and uses a
+Gumbel-Softmax relaxation for categorical
+generation\footnote{\url{https://arxiv.org/abs/1611.01144}}.
+
+\subsection{Data and Chronological Split}
+Starting from 5,988 single-game records, preprocessing excludes 18 non-regular
+games, five incomplete or duplicate-pick records, 14 records without a map,
+and 14 records whose picks conflict with the supplied bans. Conditions use
+the initial active-ban slots and recorded global bans; later active-ban slots,
+scores, and outcome labels are excluded. These fields are treated as a
+context snapshot, not a verified chronological action log.
+
+Training uses 4,952 cleaned games from 2020 Summer through 2024 Autumn.
+Validation uses 2025 Summer, and testing uses 2025 Autumn. Full matches do not
+cross split boundaries. Character and map vocabularies are fitted on training
+data only, resulting in 26 hunter characters and 45 survivor characters.
+
+Only games whose selected characters and maps occur in the training vocabulary
+are supported. This retains 177 of 501 cleaned validation games (35.3\%) and
+106 of 484 cleaned test games (21.9\%). This low coverage is a central
+limitation: the results describe the supported subset and must not be
+generalized to the entire test season or to unseen characters.
+
+\subsection{Architecture and Optimization}
+The generator receives a 16-dimensional Gaussian noise vector $z$ and a
+condition vector $c$ consisting of map and round indicators and binary ban
+masks. Two fully connected hidden layers of 64 units with ReLU activations
+produce five categorical heads: one hunter head and four survivor heads.
+Straight-through Gumbel-Softmax samples allow adversarial gradients to reach
+the generator. During decoding, banned characters are masked and each selected
+survivor is removed from subsequent survivor heads.
+
+The discriminator has two 64-unit hidden layers with leaky ReLU activations.
+It receives the condition, the hunter indicator, and the sum of survivor
+indicators divided by four. This set representation prevents arbitrary
+survivor slot order from becoming a real-versus-generated shortcut.
+Its objective is
+\begin{equation}
+L_D=-\mathbb{E}_{c,y}\log D(c,y)
+    -\mathbb{E}_{c,z}\log[1-D(c,G(c,z))].
+\end{equation}
+The generator uses the non-saturating objective
+\begin{equation}
+L_G=-\mathbb{E}_{c,z}\log D(c,G(c,z))
+    +\alpha L_{\mathrm{CE}},
+\end{equation}
+where $L_{\mathrm{CE}}$ is the mean supervised cross-entropy across five
+categorical heads, with survivor target order randomized during training.
+The auxiliary term encourages observed pick frequencies rather than a
+particular survivor ordering.
+
+Two candidates, $\alpha=0$ and $\alpha=1$, were each trained for 60 epochs
+using Adam with learning rate 0.0003, batch size 128, and
+$(\beta_1,\beta_2)=(0.5,0.9)$. The random seed was 20261003.
+Checkpoints were evaluated at epoch 1 and every five epochs thereafter.
+The hybrid candidate ($\alpha=1$) at epoch 40 was selected by validation
+divergence, without refitting or selecting on test metrics.
+
+\subsection{Evaluation and Preliminary Results}
+For each supported context, eight lineups are sampled. Distribution similarity
+is measured by the mean of hunter and survivor marginal Jensen--Shannon
+divergences, using natural logarithms:
+\begin{equation}
+\mathrm{JS}(P,Q)=\frac{1}{2}\mathrm{KL}(P\Vert M)
+               +\frac{1}{2}\mathrm{KL}(Q\Vert M),
+\qquad M=(P+Q)/2.
+\end{equation}
+This measures marginal pick-frequency agreement, not conditional tactical
+quality or joint lineup quality. A baseline samples add-one-smoothed training
+map frequencies and applies the same decoding constraints.
+
+\begin{table}[htbp]
+\centering
+\caption{Generation on 106 supported test contexts, with 848 samples per method.
+Lower JS is better. Diversity and novelty are not win-rate measures.}
+\label{tab:gan}
+\begin{tabular}{lrrr}
+\toprule
+Method & Mean JS & Diversity (\%) & Novelty (\%) \\
+\midrule
+Map-frequency sampling & 0.2007 & 100.0 & 96.7 \\
+Hybrid cGAN & 0.0972 & 99.8 & 94.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Diversity is the number of unique unordered lineups divided by eight, averaged
+across contexts. Novelty is the fraction of lineups absent from training,
+ignoring context. High diversity or novelty alone does not establish useful
+drafting behavior. Without decoding constraints, 77.1\% of cGAN samples and
+63.8\% of baseline samples violate at least one supplied-ban or uniqueness
+constraint. With constraints, both violation rates are zero. This zero rate
+is guaranteed by the decoder and is not evidence that the GAN independently
+learned tournament legality.
+
+The hybrid model improves marginal distribution similarity on the supported
+test subset, but the experiment uses only one seed and excludes most test
+games because of vocabulary limitations. Broader evaluation should include
+multiple seeds, conditional and joint-distribution checks, expert assessment,
+and explicit season rules. Connecting generated lineups to an outcome model
+would require separate validation and would still not establish causal
+advantages from changing a draft.
+
+\subsection{Interactive Demonstration}
+The trained generator weights are exported to JSON and evaluated directly in
+the project website. Users can select a map and round, edit banned characters,
+and supply a reproducible random seed. The interface generates alternative
+lineups and checks the implemented constraints. It deliberately reports no
+predicted win-rate improvement or claim of optimal play.

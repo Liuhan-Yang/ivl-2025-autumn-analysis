@@ -3,7 +3,7 @@
 The current GitHub Pages site is served from **main /docs**:
 https://liuhan-yang.github.io/ivl-2025-autumn-analysis/
 
-The bilingual website includes Project, Dataset, and Models sections. English is
+The bilingual website includes Project, Dataset, Models, and BP / GAN sections. English is
 the default. Charts use CMasher `voltage`. Site files and all runtime data are
 self-contained in `docs/`.
 
@@ -16,7 +16,48 @@ two snapshots separate when interpreting or reproducing experiments.
 
 Local preview: `python3 -m http.server 8766 --bind 127.0.0.1 --directory docs`
 
-Validation: `node --test tests/test_site.cjs`
+Validation: `node --test tests/test_site.cjs tests/test_bp.cjs`
+
+## Conditional GAN lineup generation
+
+Open `docs/bp.html` for browser inference with the actual trained generator.
+Inputs are map, round, supplied bans, and a random seed. Outputs contain one
+hunter and four distinct survivors. Bans are inputs, not generated actions;
+this is not a complete sequential BP policy or an outcome predictor.
+
+Reproduce from the repository root:
+
+```sh
+python3 -m pip install -r experiments/bp/requirements.txt
+python3 experiments/bp/train.py
+node --test tests/test_site.cjs tests/test_bp.cjs
+```
+
+The committed compact input snapshot is `experiments/bp/data.json`; its source
+provenance and cleaning audit are recorded in the experiment outputs.
+Training uses 4,952 games from 2020 Summer through 2024 Autumn. Validation is
+2025 Summer; test is 2025 Autumn. Full-match groups never cross splits.
+Train-only vocabularies support just 177/501 validation games and 106/484 test
+games (21.9% test coverage). Excluded unseen-character/map games are not scored.
+
+Two 60-epoch candidates compare pure cGAN and cGAN with supervised cross-entropy.
+Validation selects the hybrid checkpoint at epoch 40. On 106 supported test
+contexts, mean marginal Jensen–Shannon divergence is 0.0972 versus 0.2007 for
+map-frequency sampling (lower is better). This is distribution similarity, not
+win probability or tactical quality. One seed is exploratory evidence only.
+Both methods have zero violations after hard masking; this is a decoder
+guarantee, not learned tournament legality. Unmasked GAN violations are 77.1%.
+
+- `experiments/bp/train.py`: preprocessing, training, selection and evaluation.
+- `experiments/bp/results.json`: metrics, coverage, losses and runtime versions.
+- `experiments/bp/generator.pt`: selected PyTorch checkpoint.
+- `docs/bp.json`: exported generator weights, metrics and context examples.
+- `docs/bp-engine.js`: deterministic seeded inference, tested against PyTorch.
+- `docs/bp-section.tex`: English paper section with formulas and results.
+
+The GAN snapshot and protocol are separate from the original single-season
+archive below. Patch availability, full action order, player ability, and
+optimal or causal win-rate improvements are not modeled.
 
 The upstream repository contains `scripts/build_site_data.py` and its input
 requirements for rebuilding the website dataset. Existing root-level files,

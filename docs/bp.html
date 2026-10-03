@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Identity V · BP simulation</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="bp.css">
+  <script src="bp-engine.js" defer></script><script src="bp.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html#home"><span class="brand-icon">V</span><span>IDENTITY V <small>RESEARCH LAB</small></span></a>
+    <nav aria-label="Main navigation"><a id="nav-home" href="index.html#home">Project</a><a id="nav-data" href="index.html#dataset">Dataset</a><a id="nav-models" href="index.html#models">Models</a><a class="active" aria-current="page" href="bp.html">BP / GAN</a></nav>
+    <label class="language"><select id="language" aria-label="Language"><option value="en">English</option><option value="zh">中文</option></select></label>
+  </header>
+  <main id="bp-content"><p class="loading">Loading trained generator…</p></main>
+  <footer><span id="bp-footer">Research prototype · Not an optimal draft policy</span><a href="bp.json" download>Model JSON ↓</a><a href="https://github.com/Liuhan-Yang/ivl-2025-autumn-analysis/tree/main/experiments/bp">Training ↗</a></footer>
+</body>
+</html>
